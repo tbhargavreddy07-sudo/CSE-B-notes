@@ -1,0 +1,72 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+  background-color: #007bff;
+  color: white;
+  padding: 25px 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.upload-btn {
+  background: white;
+  color: #007bff;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background: #eaf1ff;
+}
+
+main {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 10px;
+}
+
+.note-card {
+  background: white;
+  margin: 15px 0;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.note-card h3 {
+  margin: 0;
+  color: #007bff;
+}
+
+.note-card p {
+  margin: 5px 0;
+}
+
+.note-card a {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.note-card a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  padding: 20px;
+}
