@@ -1,1 +1,53 @@
-git st
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Notes Sharing</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f8f9fa; }
+    h1 { text-align: center; }
+    .note {
+      background: white;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    a { color: #007bff; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <h1>📚 Shared Notes</h1>
+  <div id="notes"></div>
+
+  <script>
+    const sheetID = "YOUR_SHEET_ID_HERE";
+    const sheetURL = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json`;
+
+    fetch(sheetURL)
+      .then(res => res.text())
+      .then(data => {
+        const json = JSON.parse(data.substring(47).slice(0, -2));
+        const rows = json.table.rows;
+        const notesDiv = document.getElementById("notes");
+
+        rows.slice(1).forEach(row => {
+          const name = row.c[1]?.v || "Anonymous";
+          const subject = row.c[2]?.v || "No subject";
+          const topic = row.c[3]?.v || "No topic";
+          const link = row.c[4]?.v || "#";
+
+          const noteHTML = `
+            <div class="note">
+              <h3>${subject}</h3>
+              <p><strong>${topic}</strong></p>
+              <p>Uploaded by: ${name}</p>
+              <a href="${link}" target="_blank">📄 View Notes</a>
+            </div>`;
+          notesDiv.innerHTML += noteHTML;
+        });
+      });
+  </script>
+</body>
+</html>
